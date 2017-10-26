@@ -1,0 +1,22 @@
+group 'org.cabro.pi.sb'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+mainClassName = "org.cabro.pi.sb.PowerController"
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/groups/public' }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.9.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.9.1'
+    compile group:'com.pi4j', name: 'pi4j-core', version: '1.2-SNAPSHOT'
+    compile 'com.google.code.gson:gson:2.8.2'
+}
