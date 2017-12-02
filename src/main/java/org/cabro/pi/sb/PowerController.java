@@ -48,7 +48,7 @@ public class PowerController {
             log.error("Unable to start GPIO - This may not be running on a pi.", usle);
 
             // Terminate if you can't get a handle on the GPIO
-            //throw new RuntimeException("Unable to aquire GPIO");
+            throw new RuntimeException("Unable to aquire GPIO");
         }
 
         log.info("Initializing http listener on port: " + port + " for path: " + apiContextPath);

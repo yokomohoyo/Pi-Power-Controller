@@ -14,7 +14,7 @@ public class Response {
     private static final Logger log = LogManager.getLogger("Response");
 
     public Response(HttpExchange t) {
-        log.info("Http response initialization");
+        log.info("Http response initialization with status:" + t.getResponseCode());
         this.t = t;
         this.httpStatus = t.getResponseCode();
     }
