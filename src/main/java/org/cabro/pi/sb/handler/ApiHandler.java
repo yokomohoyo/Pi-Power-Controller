@@ -84,9 +84,11 @@ public class ApiHandler implements HttpHandler {
         }
 
         GpioPinDigitalOutput gpdo = getPin(pin);
+        String pinState = "";
 
         try {
             gpdo.toggle();
+            pinState = gpdo.getState().toString();
         } catch (Exception e) {
             log.error("Unable to toggle pin", e);
             httpStatus = 500;
@@ -95,9 +97,9 @@ public class ApiHandler implements HttpHandler {
         //Start building
         Response r = new Response(httpStatus);
         r.setPin(pin);
-        r.setPinStatus(gpdo.getState().toString());
-        log.info(pin + " = " + gpdo.getState());
-        r.setMessage("OK");
+        r.setPinStatus(pinState);
+        log.info("Pin #" + pin + " = " + pinState);
+        r.setMessage( (httpStatus == 200) ? "OK" : "ERROR" );
 
         String payload = gson.toJson(r);
         t.sendResponseHeaders(httpStatus, payload.length());
