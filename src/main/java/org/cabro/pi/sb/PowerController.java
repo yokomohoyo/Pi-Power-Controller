@@ -53,7 +53,7 @@ public class PowerController {
 
         log.info("Initializing http listener on port: " + port + " for path: " + apiContextPath);
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        server.createContext(apiContextPath, new ApiHandler());
+        server.createContext(apiContextPath, new ApiHandler(gpio));
         server.start();
 
         log.info("Ready for command...");
