@@ -72,21 +72,35 @@ public class ApiHandler implements HttpHandler {
         // Parse the method and execute
         String path = t.getRequestURI().getPath();
 
-        GpioPinDigitalOutput gpdo = null;
+        Integer httpStatus = 200;
+
         // Expecting to see /api/gpio/$PIN
-        String pin = path.split("/")[3];
-        log.info("Toggle port " + pin);
-        gpdo = getPin(pin);
-        gpdo.toggle();
+        String pin = "";
+        try {
+            pin = path.split("/")[3];
+        } catch (Exception e) {
+            log.error("Unable to parse pin number", e);
+            httpStatus = 500;
+        }
+
+        GpioPinDigitalOutput gpdo = getPin(pin);
+
+        try {
+            gpdo.toggle();
+        } catch (Exception e) {
+            log.error("Unable to toggle pin", e);
+            httpStatus = 500;
+        }
 
         //Start building
-        Response r = new Response();
+        Response r = new Response(httpStatus);
         r.setPin(pin);
+        r.setPinStatus(gpdo.getState().toString());
         log.info(pin + " = " + gpdo.getState());
-        r.setMessage(gpdo.getState() + "");
+        r.setMessage("OK");
 
-        String payload = "OK";
-        t.sendResponseHeaders(200, payload.length());
+        String payload = gson.toJson(r);
+        t.sendResponseHeaders(httpStatus, payload.length());
         OutputStream os = t.getResponseBody();
         os.write(payload.getBytes());
         os.close();

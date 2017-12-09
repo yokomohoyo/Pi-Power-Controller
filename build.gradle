@@ -1,5 +1,5 @@
 group 'org.cabro.pi.sb'
-version '0.1'
+version '0.2'
 
 apply plugin: 'java'
 apply plugin: 'application'
@@ -9,7 +9,7 @@ sourceCompatibility = 1.8
 mainClassName = "org.cabro.pi.sb.PowerController"
 
 distZip {
-    archiveName 'pi-power-strip-' + version + '.zip'
+    archiveName 'power-controller-' + version + '.zip'
 }
 
 repositories {
