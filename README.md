@@ -1,6 +1,5 @@
-# Power-Strip
-RasberryPi based remote relay management system
+# Pi Remote Power Controller
+## RaspberryPi based remote relay management system
+Currently only supported on *RaspberryPi 3 model B*
 
-Uses a small native java webserver to accept commands that
-toggle pins on the rPi. This activates ports on a sunfounder
-switch. 
+Enables control of an 8 relay module via http calls. Java based service.
