@@ -17,7 +17,7 @@ $ scp build/distributions/power-controller-0.2.zip pi@$THE_PI:~/
 #### Starting the service
 ```bash
 $ unzip power-controller-0.2.zip
-$ ./power-controller-0.2/bin/power-controller 
+$ ./power-controller-0.2/bin/power-controller
 05:59:50.236 [main] INFO  PowerController - Initializing Services...
 05:59:50.246 [main] INFO  PowerController - Initializing GpioFactory
 05:59:50.432 [main] INFO  PowerController - GpioFactory initialization complete
@@ -28,4 +28,9 @@ $ ./power-controller-0.2/bin/power-controller
 #### Test toggle a random relay 1000 times
 ```bash
 $ for k in {1..1000}; do curl "http://$THE_PI:8000/api/gpio/"$((1 + RANDOM % 8)); done
+```
+
+#### Responses in JSON format
+```javascript
+{"pin":"8","pinStatus":"HIGH","httpStatus":200,"message":"OK"}
 ```
