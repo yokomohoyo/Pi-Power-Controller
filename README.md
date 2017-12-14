@@ -33,3 +33,13 @@ $ for k in {1..1000}; do curl "http://$THE_PI:8000/api/gpio/"$((1 + RANDOM % 8))
 ```javascript
 {"pin":"8","pinStatus":"HIGH","httpStatus":200,"message":"OK"}
 ```
+
+#### Check STDOUT on your Pi if you haven't redirected
+```bash
+06:09:21.425 [Thread-3] INFO  ApiHandler - Getting pin #8
+06:09:21.427 [Thread-3] INFO  ApiHandler - Sending RELAY_PORT_8
+06:09:21.432 [Thread-3] INFO  ApiHandler - Pin #8 = HIGH
+06:10:54.406 [Thread-3] INFO  ApiHandler - Getting pin #7
+06:10:54.406 [Thread-3] INFO  ApiHandler - Sending RELAY_PORT_7
+06:10:54.407 [Thread-3] INFO  ApiHandler - Pin #7 = LOW
+```
