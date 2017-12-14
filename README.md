@@ -1,4 +1,4 @@
-# RaspberryPi based remote relay management system
+# RaspberryPi Remote Control Relay Management System
 Currently only supported on *RaspberryPi 3 model B*
 
 Enables control of an 8 relay module via http calls. Java based service.
