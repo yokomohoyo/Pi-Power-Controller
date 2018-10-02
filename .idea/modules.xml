@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-strip.iml" filepath="$PROJECT_DIR$/.idea/modules/power-strip.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-strip_main.iml" filepath="$PROJECT_DIR$/.idea/modules/power-strip_main.iml" group="power-strip" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-strip_test.iml" filepath="$PROJECT_DIR$/.idea/modules/power-strip_test.iml" group="power-strip" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-controller.iml" filepath="$PROJECT_DIR$/.idea/modules/power-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-controller_main.iml" filepath="$PROJECT_DIR$/.idea/modules/power-controller_main.iml" group="power-controller" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/power-controller_test.iml" filepath="$PROJECT_DIR$/.idea/modules/power-controller_test.iml" group="power-controller" />
     </modules>
   </component>
 </project>
